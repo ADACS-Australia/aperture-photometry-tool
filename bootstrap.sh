@@ -49,9 +49,9 @@ cat << EOF > apt.desktop
 [Desktop Entry]
 
 Version=${aptversion}
-Name[en_US]=APT
-GenericName[en_US]=Aperture Photometry Tool
-Comment[en_US]=Aperture Photometry Tool (APT) is software for astronomical research, as well as for learning, visualizing and refining aperture-photometry analyses.
+Name=APT
+GenericName=Aperture Photometry Tool
+Comment=Aperture Photometry Tool (APT) is software for astronomical research, as well as for learning, visualizing and refining aperture-photometry analyses.
 
 Exec=env APT_ARCH=linux APT_HOME=${appdir}/APT_${aptversion}/ ./APT.csh
 Path=${appdir}/APT_${aptversion}/
@@ -72,7 +72,7 @@ chmod +x apt.desktop
 cd /etc/skel
 mkdir -p Desktop
 cd Desktop
-ln -fs ${appdir}/apt.desktop APT
+ln -fs ${appdir}/apt.desktop .
 
 #create shared drive folder, and softlink to skel
 echo "--> Creating shared drive..."
