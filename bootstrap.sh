@@ -2,7 +2,7 @@
 set -e
 aptversion="v3.0.8"
 appdir="/usr/local/share/applications"
-logfile="bootstrap.log"
+logfile="${PWD}/bootstrap.log"
 
 echo "--> Configuring server..."
 # set timezone
