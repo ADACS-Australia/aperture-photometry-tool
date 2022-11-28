@@ -24,11 +24,8 @@ EOF
 # turn off auto update
 echo "--> Updating..."
 apt-get remove -qy unattended-upgrades > /dev/null
-# update
 apt-get update -qy > /dev/null
-# upgrade
 apt-get upgrade -qy > /dev/null
-# fully upgrade ubuntu? (or turn off suggestion)
 
 # install csh, openjdk-11-jdk, ansible
 echo "--> Installing dependencies..."
@@ -96,3 +93,4 @@ cat <<-EOF > playbook.yml
 
 EOF
 ansible-playbook -c local -i localhost, playbook.yml > /dev/null
+rm -f playbook.yml
