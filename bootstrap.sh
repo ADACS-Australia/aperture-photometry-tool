@@ -72,7 +72,7 @@ chmod +x apt.desktop
 cd /etc/skel
 mkdir -p Desktop
 cd Desktop
-ln -fs ${appdir}/apt.desktop .
+cp ${appdir}/apt.desktop .
 
 #create shared drive folder, and softlink to skel
 echo "--> Creating shared drive..."
