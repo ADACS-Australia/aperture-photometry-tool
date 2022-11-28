@@ -72,8 +72,27 @@ cd /etc/skel; mkdir -p Desktop; cd Desktop; ln -fs ${appdir}/apt.desktop .
 echo "--> Creating shared drive..."
 mkdir -p "/srv/Shared Drive"; cd "/srv/Shared Drive"; chown guacd .; chgrp users .; chmod 775 .; cd /etc/skel/Desktop; ln -fs "/srv/Shared Drive" .
 
+cd
+echo "--> Configuring Guacamole..."
 # add group="users" entry to unix-users-map.xml
+sed -i 's/<group name="sudo">/<group name="users">/' /etc/guacamole/unix-user-mapping.xml
 
 # enable shared drive unix-users-map.xml
+cat <<-EOF > playbook.yml
+- name: guacamole config
+  hosts: all
+  gather_facts: false
+  become: true
 
-# how to upload files from local machine?? permissions?
+  tasks:
+  - blockinfile:
+      path: /etc/guacamole/unix-user-mapping.xml
+      marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+      insertbefore: "</config>"
+      block: |
+        <param name='enable-drive' value='true' />
+        <param name='drive-path' value='/srv/Shared Drive' />"
+
+
+EOF
+ansible-playbook -c local -i localhost, playbook.yml > /dev/null
