@@ -2,5 +2,5 @@
 Run the script
 
 ```shell
-curl -L https://raw.githubusercontent.com/ADACS-Australia/aperture-photometry-tool/master/setup.sh | sudo bash
+curl -L https://raw.githubusercontent.com/ADACS-Australia/aperture-photometry-tool/master/bootstrap.sh | sudo bash
 ```
