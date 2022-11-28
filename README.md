@@ -10,9 +10,9 @@ curl -sL https://raw.githubusercontent.com/ADACS-Australia/aperture-photometry-t
 ## Creating users
 Run the users script, providing as many users as necessary. It will create each user with a random password. Existing users will be skipped.
 
-e.g.
+e.g. to create users `bob`, `bill`, `tim` and `tom`
 ```shell
-curl -sL https://raw.githubusercontent.com/ADACS-Australia/aperture-photometry-tool/master/users.sh | sudo bash - bob bill tim tom
+curl -sL https://raw.githubusercontent.com/ADACS-Australia/aperture-photometry-tool/master/users.sh | sudo bash -s bob bill tim tom
 ```
 
-Don't forget remind students to change their passwords when they first log in.
+Don't forget remind `bob`, `bill`, `tim` and `tom` to change their passwords when they first log in.
