@@ -5,6 +5,5 @@
 
 for user in $@; do
   pswd="$(pwgen -cn 10 1)"
-  useradd -m $user -g users -p "$(mkpasswd ${pswd} -S ss)"
-  echo $user $pswd
+  useradd -m $user -g users -p "$(mkpasswd ${pswd} -S ss)" && echo $user $pswd
 done
