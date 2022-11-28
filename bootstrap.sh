@@ -7,7 +7,7 @@ logfile="bootstrap.log"
 echo "--> Configuring server..."
 # set timezone
 timedatectl set-timezone Australia/Melbourne
-echo "BOOTSTRAP LOG: $(date)" > "${logfile}"
+echo "BOOTSTRAP LOG: $(date)\n" > "${logfile}"
 
 # stop warning about upgrades
 sed -i 's/Prompt=.*/Prompt=never/' /etc/update-manager/release-upgrades
@@ -37,7 +37,8 @@ echo "--> Installing APT..."
 # download APT, untar
 mkdir -p "${appdir}"
 cd "${appdir}"
-wget "http://web.ipac.caltech.edu/staff/laher/apt/APT_${aptversion}.tar.gz" >> "${logfile}"
+wget -q "http://web.ipac.caltech.edu/staff/laher/apt/APT_${aptversion}.tar.gz" >> "${logfile}"
+rm -f APT_${aptversion}.tar.gz
 tar -xvzf APT_${aptversion}.tar.gz >> "${logfile}"
 rm -f APT_${aptversion}.tar.gz
 # create .desktop file
