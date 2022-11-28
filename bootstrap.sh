@@ -25,15 +25,18 @@ EOF
 
 # turn off auto update
 echo "--> Updating..."
+echo "--> Updating..." >> "${logfile}"
 apt-get remove -qy unattended-upgrades >> "${logfile}"
 apt-get update -qy >> "${logfile}"
 apt-get upgrade -qy >> "${logfile}"
 
 # install csh, openjdk-11-jdk, ansible
 echo "--> Installing dependencies..."
+echo "--> Installing dependencies..." >> "${logfile}"
 apt-get install -qy csh openjdk-11-jdk ansible >> "${logfile}"
 
 echo "--> Installing APT..."
+echo "--> Installing APT..." >> "${logfile}"
 # download APT, untar
 mkdir -p "${appdir}"
 cd "${appdir}"
@@ -73,6 +76,7 @@ ln -fs ${appdir}/apt.desktop APT
 
 #create shared drive folder, and softlink to skel
 echo "--> Creating shared drive..."
+echo "--> Creating shared drive..." >> "${logfile}"
 mkdir -p "/srv/Shared Drive"
 cd "/srv/Shared Drive"
 chown guacd .
@@ -84,6 +88,7 @@ ln -fs "/srv/Shared Drive" .
 
 cd
 echo "--> Configuring Guacamole..."
+echo "--> Configuring Guacamole..." >> "${logfile}"
 # add group="users" entry to unix-users-map.xml
 sed -i 's/<group name="sudo">/<group name="users">/' /etc/guacamole/unix-user-mapping.xml
 
