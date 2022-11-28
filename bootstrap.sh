@@ -37,8 +37,8 @@ echo "--> Installing APT..."
 # download APT, untar
 mkdir -p "${appdir}"
 cd "${appdir}"
-wget -q "http://web.ipac.caltech.edu/staff/laher/apt/APT_${aptversion}.tar.gz" >> "${logfile}"
 rm -f APT_${aptversion}.tar.gz
+wget -q "http://web.ipac.caltech.edu/staff/laher/apt/APT_${aptversion}.tar.gz" >> "${logfile}"
 tar -xvzf APT_${aptversion}.tar.gz >> "${logfile}"
 rm -f APT_${aptversion}.tar.gz
 # create .desktop file
