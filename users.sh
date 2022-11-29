@@ -5,8 +5,9 @@
 
 for user in $@; do
   pswd="$(pwgen -cn 10 1)"
-  useradd -m $user -g users -p "$(mkpasswd ${pswd} -S ss)"
+  adduser --quiet --disabled-password --gecos "" $user
   if [ "$?" -eq "0" ]; then
+    echo "${user}:${pswd}" | chpasswd
     echo $user $pswd
   fi
 done
