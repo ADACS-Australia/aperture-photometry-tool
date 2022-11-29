@@ -14,6 +14,7 @@ e.g. to create users `bob`, `bill`, `tim` and `tom`
 ```shell
 curl -sL https://raw.githubusercontent.com/ADACS-Australia/aperture-photometry-tool/master/users.sh | sudo bash -s bob bill tim tom
 ```
+The script will output the name and password of each user it creates. **These passwords should be temporary.**
 
 Don't forget remind `bob`, `bill`, `tim` and `tom` to change their passwords when they first log in.
 
