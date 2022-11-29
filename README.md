@@ -16,3 +16,7 @@ curl -sL https://raw.githubusercontent.com/ADACS-Australia/aperture-photometry-t
 ```
 
 Don't forget remind `bob`, `bill`, `tim` and `tom` to change their passwords when they first log in.
+
+## Uploading/Downloading files
+Open [Guacamole sidebar menu](https://guacamole.apache.org/doc/gug/using-guacamole.html#the-guacamole-menu) with `ctrl+alt+shift`.
+Click on Shared Drive under Devices. Double click on files to download.
