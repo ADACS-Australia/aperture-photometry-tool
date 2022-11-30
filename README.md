@@ -34,3 +34,5 @@ Anyone can upload files, however they will by default only be readable/writable 
 ```shell
 sudo chmod g+r <file>
 ```
+
+The sticky bit is enabled on the `Shared Drive` directory. Users can safely move files into the directory without anyone else being able to delete or modify them.
