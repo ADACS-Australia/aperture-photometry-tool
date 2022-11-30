@@ -3,6 +3,7 @@ set -e
 aptversion="v3.0.8"
 appdir="/usr/local/share/applications"
 logfile="${PWD}/bootstrap.log"
+home_dir=`eval echo ~"$(logname)"`
 
 echo "--> Configuring server..."
 # set timezone
@@ -73,6 +74,7 @@ cd /etc/skel
 mkdir -p Desktop
 cd Desktop
 cp ${appdir}/apt.desktop .
+cp ${appdir}/apt.desktop $home_dir/Desktop/. && chown $(logname) $home_dir/Desktop/apt.desktop
 
 #create shared drive folder, and softlink to skel
 echo "--> Creating shared drive..."
@@ -81,10 +83,11 @@ mkdir -p "/srv/Shared Drive"
 cd "/srv/Shared Drive"
 chown guacd .
 chgrp users .
-chmod 775 .
+chmod 1775 .
 chmod g+s .
 cd /etc/skel/Desktop
 ln -fs "/srv/Shared Drive" .
+ln -fs "/srv/Shared Drive" $home_dir/Desktop/.
 
 cd
 echo "--> Configuring Guacamole..."
